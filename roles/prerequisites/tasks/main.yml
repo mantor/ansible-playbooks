@@ -12,10 +12,6 @@
       - slurm
     state: present
 
-- name: Include vaulted passwords
-  ansible.builtin.include_vars:
-    file: vars/secrets.yml
-
 - name: Ensure user hackfest is present
   user:
     name: hackfest
