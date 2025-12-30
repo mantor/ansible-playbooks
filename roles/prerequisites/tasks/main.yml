@@ -22,3 +22,18 @@
     state: present
     create_home: yes
 
+- name: Deploy SSH Bitbucket Private Key
+  copy:
+    content: "{{ hackfest_bitbucket_key }}"
+    dest: "/home/hackfest/.ssh/{{hackfest_keyname}}"
+    owner: "hackfest"
+    group: "hackfest"
+    mode: '0600'
+
+- name: Deploy SSH Bitbucket Public Key
+  copy:
+    content: "{{ hackfest_bitbucket_key_pub }}"
+    dest: "/home/hackfest/.ssh/{{hackfest_keyname}}.pub"
+    owner: "hackfest"
+    group: "hackfest"
+    mode: '0644'
