@@ -1,0 +1,19 @@
+- name: Ensure git is present
+  community.general.openbsd_pkg:
+    name: git
+    state: present
+
+- name: Include vaulted passwords
+  ansible.builtin.include_vars:
+    file: vars/secrets.yml
+
+- name: Ensure user hackfest is present
+  user:
+    name: hackfest
+    password: "{{ hackfest_pw }}"
+    shell: /bin/ksh
+    groups: wheel
+    append: true
+    state: present
+    create_home: yes
+
