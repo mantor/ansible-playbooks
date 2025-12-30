@@ -5,6 +5,12 @@
     state: link
     force: true
 
+- name: Enable and start ntpd
+  ansible.builtin.service:
+    name: ntpd
+    enabled: true
+    state: started
+
 - name: Ensure packages are present
   community.general.openbsd_pkg:
     name:
