@@ -4,4 +4,4 @@
     state: restarted
 
 - name: update aliases
-    ansible.builtin.command: newaliases
+  ansible.builtin.command: newaliases
