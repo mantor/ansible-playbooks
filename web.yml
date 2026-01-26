@@ -10,3 +10,14 @@
     - hackfest
   tags:
     - setup
+
+- name: Clone Websites
+  hosts: web_servers
+  become: true
+  become_method: community.general.doas
+  vars_files:
+    - vars/secrets.yml
+  roles:
+    - clone-websites
+  tags:
+    - clone

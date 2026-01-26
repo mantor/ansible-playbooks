@@ -1,0 +1,16 @@
+sites:
+  - name: hackfest
+    repo: 'git@bitbucket.org:hackfestca/hackfest.ca.git'
+    dest: /home/hackfest/www_hackfest
+  - name: quebecsec
+    repo: 'git@bitbucket.org:hackfestca/quebecsec.ca.git'
+    dest: /home/hackfest/www_quebecsec
+  - name: securitefm
+    repo: 'git@bitbucket.org:hackfestca/securite.fm.git'
+    dest: /home/hackfest/www_securite
+  - name: polarcon
+    repo: 'git@bitbucket.org:hackfestca/polarcon.git'
+    dest: /home/hackfest/www_polarcon
+  - name: ihack
+    repo: 'git@bitbucket.org:hackfestca/ihack.computer.git'
+    dest: /home/hackfest/www_ihack
