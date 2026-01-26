@@ -1,0 +1,3 @@
+skip_list:
+  - 'yaml[line-length]'
+  - latest # don't complain that subsequent runs may produce different results when using git clone / HEAD
