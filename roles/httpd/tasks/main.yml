@@ -1,0 +1,2 @@
+- name: Create directories and clone repositories to their proper location
+  ansible.builtin.import_tasks: clone.yml

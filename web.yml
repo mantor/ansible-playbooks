@@ -11,13 +11,13 @@
   tags:
     - setup
 
-- name: Clone Websites
+- name: Clone websites and configure httpd
   hosts: web_servers
   become: true
   become_method: community.general.doas
   vars_files:
     - vars/secrets.yml
   roles:
-    - clone-websites
+    - httpd
   tags:
-    - clone
+    - httpd

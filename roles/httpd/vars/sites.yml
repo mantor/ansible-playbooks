@@ -1,0 +1,7 @@
+httpd_sites_root: "/var/www/htdocs"
+httpd_sites:
+  - { name: 'hackfest', repo: 'git@bitbucket.org:hackfestca/hackfest.ca.git', owner: 'hackfest' }
+  - { name: 'quebecsec', repo: 'git@bitbucket.org:hackfestca/quebecsec.ca.git', owner: 'hackfest' }
+  - { name: 'securitefm', repo: 'git@bitbucket.org:hackfestca/securite.fm.git', owner: 'hackfest' }
+  - { name: 'polarcon', repo: 'git@bitbucket.org:hackfestca/polarcon.git', owner: 'hackfest' }
+  - { name: 'ihack', repo: 'git@bitbucket.org:hackfestca/ihack.computer.git', owner: 'hackfest' } 

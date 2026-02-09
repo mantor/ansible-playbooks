@@ -1,0 +1,43 @@
+- name: Load list of sites
+  ansible.builtin.include_vars:
+    file: vars/sites.yml
+
+- name: Create base htdocs directory
+  ansible.builtin.file:
+    path: "{{ httpd_sites_root }}"
+    state: directory
+    owner: root
+    group: daemon
+    mode: '0755'
+
+- name: Provision dev site directories with setgid
+  ansible.builtin.file:
+    path: "{{ httpd_sites_root }}/www_{{ item.name }}"
+    state: directory
+    owner: "{{ item.owner }}"
+    group: www
+    mode: '2750'
+  loop: "{{ httpd_sites }}"
+  loop_control:
+    label: "{{ item.name }} (Owner: {{ item.owner }})"
+
+- name: Provision PROD site directories with setgid
+  ansible.builtin.file:
+    path: "{{ httpd_sites_root }}/www_{{ item.name }}-PROD"
+    state: directory
+    owner: "{{ item.owner }}"
+    group: www
+    mode: '2750'
+  loop: "{{ httpd_sites }}"
+  loop_control:
+    label: "{{ item.name }} (Owner: {{ item.owner }})"
+
+- name: Clone each site in proper location
+  ansible.builtin.git:
+    repo: "{{ item.repo }}"
+    dest: "{{ httpd_sites_root }}/www_{{ item.name }}"
+    key_file: "/home/hackfest/.ssh/{{ hackfest_keyname }}"
+    accept_hostkey: true
+  become: true
+  become_user: hackfest
+  loop: "{{ httpd_sites }}"
