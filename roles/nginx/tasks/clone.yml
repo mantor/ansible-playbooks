@@ -38,6 +38,7 @@
     dest: "{{ httpd_sites_root }}/www_{{ item.name }}"
     key_file: "/home/hackfest/.ssh/{{ hackfest_keyname }}"
     accept_hostkey: true
+    update: false
   become: true
   become_user: hackfest
   loop: "{{ httpd_sites }}"

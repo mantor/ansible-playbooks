@@ -11,13 +11,13 @@
   tags:
     - setup
 
-- name: Clone websites and configure httpd
+- name: Clone websites and configure nginx
   hosts: web_servers
   become: true
   become_method: community.general.doas
   vars_files:
     - vars/secrets.yml
   roles:
-    - httpd
+    - nginx
   tags:
-    - httpd
+    - nginx
